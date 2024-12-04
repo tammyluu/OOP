@@ -30,7 +30,7 @@ public class ZooManager {
         System.out.println("Entrez le nom de l'animal : ");
         String name = scanner.nextLine();
 
-        System.out.println("Entrez spécilité de l'animal : ");
+        System.out.println("Précisez de l'animal : ");
         String species = scanner.nextLine();
 
         System.out.println("Entrez l'ID de l'enclos (1: Savane | 2: Jungle: ");
@@ -62,8 +62,6 @@ public class ZooManager {
     }
 
 
-
-
     private void feedAnimals() {
         // Implémentation de la méthode perform
         ZooAction feedAction = animal -> animal.eat();
@@ -71,13 +69,14 @@ public class ZooManager {
             enclosure.performActionOnAnimals(feedAction);
         }
     }
+
     private void removeAnimal(Scanner scanner) {
         System.out.println("Choisissez un enclos:");
         for (int i = 0; i < enclosures.size(); i++) {
             System.out.println((i + 1) + ". " + enclosures.get(i).getName());
         }
         int enclosureChoice = scanner.nextInt();
-        scanner.nextLine(); // Consomme la ligne restante
+        scanner.nextLine();
 
         if (enclosureChoice > 0 && enclosureChoice <= enclosures.size()) {
             Enclosure enclosure = enclosures.get(enclosureChoice - 1);
@@ -110,7 +109,7 @@ public class ZooManager {
             System.out.println("5. Quitter");
             System.out.print("Choix: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1 -> addAnimal(scanner);

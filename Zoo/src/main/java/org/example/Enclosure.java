@@ -7,6 +7,7 @@ public class Enclosure {
     private  int id;
     private  String name;
     private List<Animal> animals ;
+
     public Enclosure(int id, String name, List<Animal> animals) {
         this.id = id;
         this.name = name;
