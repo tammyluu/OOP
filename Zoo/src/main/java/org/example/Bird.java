@@ -5,13 +5,9 @@ public class Bird extends Animal {
         super(id, name, species);
     }
 
-    @Override
-    public String getDetails() {
-        return "";
-    }
 
     @Override
     public void eat() {
-        System.out.println("Birds eaten");
+        System.out.println(name + " Bird is eating seeds or insects.");
     }
 }

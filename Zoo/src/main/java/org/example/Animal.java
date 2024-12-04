@@ -21,6 +21,8 @@ public  abstract class Animal {
         return name;
     }
 
-    public abstract String getDetails();
+    public  String getDetails(){
+        return name + " (" + species + ")";
+    };
     public  abstract void  eat();
 }

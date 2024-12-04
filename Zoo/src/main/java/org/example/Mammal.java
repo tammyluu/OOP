@@ -7,13 +7,10 @@ public class Mammal extends Animal {
         super(id, name, species);
     }
 
-    @Override
-    public String getDetails() {
-        return "";
-    }
+
 
     @Override
     public void eat() {
-        System.out.println("Mammals eaten");
+        System.out.println(name + " (Mammal) is eating plants or meat.");
     }
 }
