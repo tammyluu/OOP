@@ -30,21 +30,20 @@ public class ZooManager {
         System.out.println("Entrez le nom de l'animal : ");
         String name = scanner.nextLine();
 
-        System.out.println("Entrez l'espèce de l'animal : ");
+        System.out.println("Entrez spécilité de l'animal : ");
         String species = scanner.nextLine();
 
-        System.out.println("Entrez l'ID de l'enclos : ");
+        System.out.println("Entrez l'ID de l'enclos (1: Savane | 2: Jungle: ");
         int idEnclosure;
 
-        // Validation pour un entier
         while (!scanner.hasNextInt()) {
             System.out.println("Veuillez entrer un ID valide !");
-            scanner.next(); // Ignore l'entrée incorrecte
+            scanner.next();
         }
         idEnclosure = scanner.nextInt();
         scanner.nextLine(); // Nettoie le tampon
 
-        // Rechercher l'enclos par ID
+        // Rechercher l'enclos correspondant
         Enclosure enclosure = enclosures.stream()
                 .filter(e -> e.getId() == idEnclosure)
                 .findFirst()
@@ -57,9 +56,11 @@ public class ZooManager {
 
         // Création et ajout de l'animal
         Animal animal = new Mammal(animals.size() + 1, name, species); // Par défaut un Mammifère
-        enclosure.addAnimal(animal);
+        animals.add(animal); // Ajouter à la liste globale
+        enclosure.addAnimal(animal); // Ajouter à l'enclos
         System.out.println("Animal ajouté avec succès !");
     }
+
 
 
 
