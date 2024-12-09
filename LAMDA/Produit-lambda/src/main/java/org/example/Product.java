@@ -37,7 +37,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format("Product| '%s'| price: =%.2f €| quantity = %d|", title, price, quantity);
+        return String.format("Product| '%s'| price: %.2f €| quantity = %d|", title, price, quantity);
 
     }
 }
