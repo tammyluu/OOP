@@ -1,7 +1,5 @@
 package org.example;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,7 +9,7 @@ import java.text.DecimalFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class FilmStream {
+public class Main {
     public static List<Film> lireFilms(String pathFichier) throws IOException {
         List<Film> films = new ArrayList<Film>();
         try (BufferedReader br  = Files.newBufferedReader(Paths.get(pathFichier), StandardCharsets.UTF_8)){
