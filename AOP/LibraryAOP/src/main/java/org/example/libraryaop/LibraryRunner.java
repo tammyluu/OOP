@@ -1,6 +1,7 @@
 package org.example.libraryaop;
 
 
+import org.example.libraryaop.annotation.Performance;
 import org.example.libraryaop.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,6 +15,7 @@ public class LibraryRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+
 
         bookService.addBook(1, "Java Oracle 21");
         bookService.addBook(2, "Spring Framework 6");
@@ -31,13 +33,13 @@ public class LibraryRunner implements CommandLineRunner {
         } catch (Exception e) {
             System.out.println("Error after deletion: " + e.getMessage());
         }
-        System.out.println("\nAdding 10 more books...");
+       /* System.out.println("\nAdding 10 more books...");
         long startAddTime = System.currentTimeMillis();
         for (int i = 0; i < 10; i++) {
             bookService.addBook(i, "Book " + i);
         }
         long endAddTime = System.currentTimeMillis();
-        System.out.println("Time to add 10 books: " + (endAddTime - startAddTime) + " ms");
+        System.out.println("Time to add 10 books: " + (endAddTime - startAddTime) + " ms");*/
     }
 
 
