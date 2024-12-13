@@ -5,14 +5,13 @@ import org.example.libraryaop.annotation.Log;
 import org.example.libraryaop.annotation.Performance;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Book;
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
 public class BookService {
 
-    private Map<Integer, String> books = new HashMap<>();
+    private final Map<Integer, String> books = new HashMap<>();
 
     @Log
     @Performance
@@ -24,6 +23,9 @@ public class BookService {
     @Performance
     @ExceptionAnnotation
     public void removeBook(int id) {
+        if (!books.containsKey(id)) {
+            throw new IllegalArgumentException("Cannot remove: Book not found with ID " + id);
+        }
         books.remove(id);
     }
 
@@ -32,7 +34,7 @@ public class BookService {
     @ExceptionAnnotation
     public String getBook(int id) {
         if (!books.containsKey(id)) {
-            throw new IllegalArgumentException("Book not found");
+            throw new IllegalArgumentException("Book not found with ID " + id);
         }
         return books.get(id);
     }
